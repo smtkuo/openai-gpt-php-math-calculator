@@ -12,7 +12,7 @@ This project is a PHP application that performs secure and accurate mathematical
 ## Installation
 
 1. Clone the project:   ```
-   git clone https://github.com/your-username/secure-php-openai-chatgpt-calculator.git   ```
+   git clone https://github.com/smtkuo/openai-gpt-php-math-calculator.git   ```
 
 2. Install the required dependencies:   ```
    composer install   ```
