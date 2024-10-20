@@ -1,0 +1,47 @@
+# Composer
+/vendor/
+composer.phar
+
+# PHPUnit
+/phpunit.xml
+.phpunit.result.cache
+
+# Environment files
+.env
+.env.backup
+.env.production
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+php_errors.log
+
+# Cache files
+*.cache
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Build files
+/build/
+
+# Other
+/node_modules/
+npm-debug.log
+yarn-error.log
