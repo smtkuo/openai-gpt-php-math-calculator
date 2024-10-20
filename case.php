@@ -1,6 +1,9 @@
 <?php
 require 'vendor/autoload.php';
 
+use MathParser\StdMathParser;
+use MathParser\Interpreting\Evaluator;
+
 function loadEnvironment() {
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
     $dotenv->load();
@@ -42,11 +45,16 @@ Example: For "3*6/2-10", respond with "((3 * 6) / 2) - 10"'],
 }
 
 function evaluateExpression($expression) {
-    $result = @eval("return $expression;");
-    if ($result === false && error_get_last() !== null) {
-        throw new RuntimeException("Error evaluating expression");
+    $parser = new StdMathParser();
+    $evaluator = new Evaluator();
+
+    try {
+        $parsedExpression = $parser->parse($expression);
+        $result = $parsedExpression->accept($evaluator);
+        return $result;
+    } catch (Exception $e) {
+        throw new RuntimeException("Error evaluating expression: " . $e->getMessage());
     }
-    return $result;
 }
 
 function formatResult($result) {
